@@ -9,5 +9,8 @@
         <module name="mmall" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="mmall" target="1.7" />
+    </bytecodeTargetLevel>
   </component>
 </project>
