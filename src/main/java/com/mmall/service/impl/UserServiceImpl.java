@@ -65,7 +65,7 @@ public class UserServiceImpl implements IUserService {
             if (Const.USERNAME.equals(type)){
                 int resultCount = userMapper.checkUsername(str);
                 if (resultCount > 0){
-                    return ServerResponse.createByErrorMessage("用户名已存在")；
+                    return ServerResponse.createByErrorMessage("用户名已存在");
                 }
 
             }
