@@ -170,4 +170,9 @@
     AND  password =  #{password}
   </select>
 
+  <select id="selectQuestionByUsername" resultSetType="string" resultMap="string">
+    select question
+    from mmall_user
+    where username = #{username}
+  </select>
 </mapper>

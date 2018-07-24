@@ -7,6 +7,7 @@ import com.mmall.dao.UserMapper;
 import com.mmall.pojo.User;
 import com.mmall.service.IUserService;
 import com.mmall.util.MD5Util;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 
 public class UserServiceImpl implements IUserService {
@@ -82,4 +83,21 @@ public class UserServiceImpl implements IUserService {
         }
         return ServerResponse.createBySuccess("校验成功");
     }
-}
+
+    public ServerResponse selectQuestion(String username){
+
+        ServerResponse validResponse = this.checkVail(username,Const.USERNAME);
+        if (validResponse.isSuccess()){
+        //用户不存在
+            return ServerResponse.createByErrorMessage("用户不存在");
+        }
+        String question = userMapper.selectQuestionByUsername(username);
+        if (StringUtils.isNotBlank(question)){
+            return ServerResponse.createBySuccess(question);
+        }
+        return ServerResponse.createByErrorMessage("找回密码的问题是空的");
+    }
+
+    public ServerResponse<String> forgetCheckAnswer(String username,String question,String answer){
+        userMapper
+    }
