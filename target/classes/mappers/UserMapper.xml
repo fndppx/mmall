@@ -189,4 +189,17 @@
   set password = #{passwordNew},update_time = now()
   where username = #{username}
   </update>
+
+  <select id="checkPassword" resultType="int" resultMap="map">
+    select count(1)
+    from mmall_user
+    where password = #{password}
+    and id = #{userId}
+  </select>
+
+  <select id="checkEmailByUserId" resultType="int" resultMap="map">
+    select count(1) from mmal_user
+    where email = #{email}
+    and id != #{userId}
+  </select>
 </mapper>
