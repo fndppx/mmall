@@ -170,4 +170,17 @@
     AND  password =  #{password}
   </select>
 
+  <select id="selectQuestionByUsername" resultSetType="string" resultMap="string">
+    select question
+    from mmall_user
+    where username = #{username}
+  </select>
+
+  <select id="checkAnswer" resultType="int" resultMap="map">
+  SELECT count(1)
+  FROM mmall_user
+  WHERE username = #{username}
+  AND question = #{question}
+  AND answer = #{answer}
+  </select>
 </mapper>
