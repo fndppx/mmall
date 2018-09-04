@@ -1,6 +1,7 @@
 package com.mmall.service.impl;
 
 import com.google.common.collect.Lists;
+import com.mmall.service.IFileService;
 import com.mmall.util.FTPUtil;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -12,7 +13,7 @@ import java.io.IOException;
 import java.util.UUID;
 
 @Service("iFileService")
-public class FileServiceImpl {
+public class FileServiceImpl implements IFileService{
 
     private Logger logger = LoggerFactory.getLogger(FileServiceImpl.class);
 
